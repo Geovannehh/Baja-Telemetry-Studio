@@ -1,0 +1,14 @@
+{
+  "name": "baja-telemetry-studio",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["apps/server", "apps/web"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,magenta \"npm run dev -w @baja/server\" \"npm run dev -w @baja/web\"",
+    "build": "npm run build -w @baja/web",
+    "start": "npm run start -w @baja/server",
+    "test": "npm run test -w @baja/server"
+  },
+  "devDependencies": { "concurrently": "^9.1.2" }
+}
